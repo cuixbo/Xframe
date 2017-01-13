@@ -8,11 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+
 /**
  * Created by xiaobo.cui on 2016/9/22.
  */
-public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
     protected Context mContext;
+    private int layoutResId;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -22,9 +25,18 @@ public class BaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return super.onCreateView(inflater, container, savedInstanceState);
+        View view = inflater.inflate(layoutResId, container, false);
+        ButterKnife.bind(this,view);
+        initArguments();
+        initView();
+        initListener();
+        initData();
+        return view;
     }
 
+    protected void setContentView(int layoutResId){
+        this.layoutResId=layoutResId;
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -71,6 +83,14 @@ public class BaseFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
+
+    protected abstract void initArguments();
+
+    protected abstract void initView();
+
+    protected abstract void initListener();
+
+    protected abstract void initData();
 
 
 }

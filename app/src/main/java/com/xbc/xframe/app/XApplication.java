@@ -3,7 +3,7 @@ package com.xbc.xframe.app;
 import android.text.TextUtils;
 
 import com.xbc.xframe.app.base.BaseApplication;
-import com.xbc.xframe.db.RxDBManager;
+import com.xbc.xframe.db.DBManager;
 import com.xbc.xframe.util.AppUtil;
 
 /**
@@ -40,7 +40,7 @@ public class XApplication extends BaseApplication {
      */
     public void onAppStart() {
         CrashHandler.getInstance().init(getInstance());
-        RxDBManager.init(getInstance());
+        DBManager.getInstance().init(getInstance(),"1");
     }
 
     /**

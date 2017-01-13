@@ -14,24 +14,37 @@ import rx.android.schedulers.AndroidSchedulers;
 
 public class SplashActivity extends BaseActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        initView();
-        preLoading();
     }
 
-    private void initView() {
+    @Override
+    protected void initIntent() {
 
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initListener() {
+
+    }
+
+    @Override
+    protected void initData() {
+        preLoading();
     }
 
     private void preLoading() {
         Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
-                Intent intent = new Intent(mContext, LoginActivity.class);
+                Intent intent = new Intent(mContext, TestActivity.class);
                 startActivity(intent);
                 finish();
             }
