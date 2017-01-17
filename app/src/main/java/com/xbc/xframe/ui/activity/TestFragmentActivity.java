@@ -1,5 +1,6 @@
 package com.xbc.xframe.ui.activity;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.widget.FrameLayout;
 import com.xbc.xframe.R;
 import com.xbc.xframe.app.base.BaseActivity;
 import com.xbc.xframe.ui.fragment.TestLiteOrmFragment;
+import com.xbc.xframe.ui.fragment.TestShapeSelectorFragment;
 
 import butterknife.BindView;
 
@@ -20,6 +22,8 @@ public class TestFragmentActivity extends BaseActivity {
     @BindView(R.id.fl_fragment_container)
     FrameLayout mFlFragmentContainer;
 
+    int mTestId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,14 +32,25 @@ public class TestFragmentActivity extends BaseActivity {
 
     @Override
     protected void initIntent() {
-
+        mTestId=getIntent().getIntExtra("testId",0);
     }
 
     @Override
     protected void initView() {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.add(R.id.fl_fragment_container, new TestLiteOrmFragment(), "TestLiteOrmFragment");
+        Fragment fragment=null;
+        switch (mTestId){
+            case 1:
+                fragment=new TestShapeSelectorFragment();
+                break;
+            case 0:
+                fragment=new TestLiteOrmFragment();
+                break;
+            default:
+                break;
+        }
+        ft.add(R.id.fl_fragment_container, fragment, fragment.getClass().getSimpleName());
         ft.commitAllowingStateLoss();
     }
 

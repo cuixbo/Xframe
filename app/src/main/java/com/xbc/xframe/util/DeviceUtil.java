@@ -141,30 +141,30 @@ public class DeviceUtil {
     /**
      * 讲px值转变成dip
      */
-    public static float pxToDip(Context context, float px) {
-        return px / getDeviceDensity(context) + 0.5f;
+    public static int px2dp(Context context, float px) {
+        return (int) (px / getDeviceDensity(context) + 0.5f);
     }
 
     /**
      * 将dip值转成px
      */
-    public static float dipToPx(Context context, float dip) {
-        return dip * getDeviceDensity(context) + 0.5f;
+    public static int dp2px(Context context, float dip) {
+        return (int) (dip * getDeviceDensity(context) + 0.5f);
     }
 
     /**
      * 将px值转成sp值
      */
-    public static float pxToSp(Context context, float px) {
+    public static int px2sp(Context context, float px) {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
-        return px / fontScale + 0.5f;
+        return (int) (px / fontScale + 0.5f);
     }
 
     /**
      * 将sp值转成px值
      */
-    public static float spTpPx(Context context, float sp) {
+    public static int sp2px(Context context, float sp) {
         final float fontScale = context.getResources().getDisplayMetrics().scaledDensity;
-        return sp * fontScale + 0.5f;
+        return (int) (sp * fontScale + 0.5f);
     }
 }

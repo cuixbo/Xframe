@@ -18,6 +18,8 @@ public class TestActivity extends BaseActivity {
 
     @BindView(R.id.btn_test_liteorm)
     Button mBtnTestLiteOrm;
+    @BindView(R.id.btn_test_shape_selector)
+    Button mBtnTestShapeSelector;
 
 
     @Override
@@ -45,6 +47,13 @@ public class TestActivity extends BaseActivity {
                 doLiteOrmTest();
             }
         });
+
+        mBtnTestShapeSelector.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doShapeSelectorTest();
+            }
+        });
     }
 
     @Override
@@ -53,7 +62,14 @@ public class TestActivity extends BaseActivity {
     }
 
     public void doLiteOrmTest() {
-        startActivity(new Intent(mContext, TestFragmentActivity.class));
+        Intent intent=new Intent(mContext, TestFragmentActivity.class);
+        intent.putExtra("testId",0);
+        startActivity(intent);
+    }
+    public void doShapeSelectorTest() {
+        Intent intent=new Intent(mContext, TestFragmentActivity.class);
+        intent.putExtra("testId",1);
+        startActivity(intent);
     }
 
 

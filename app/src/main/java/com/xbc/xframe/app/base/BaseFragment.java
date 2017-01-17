@@ -1,7 +1,10 @@
 package com.xbc.xframe.app.base;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -68,10 +71,20 @@ public abstract class BaseFragment extends Fragment {
         super.onDestroy();
     }
 
+    @TargetApi(Build.VERSION_CODES.M)//api 23
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         mContext=context;
+    }
+
+    @SuppressWarnings("deprecation")// api <23
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if(Build.VERSION.SDK_INT<Build.VERSION_CODES.M){
+            mContext=activity;
+        }
     }
 
     @Override
