@@ -44,7 +44,7 @@ public class SplashActivity extends BaseActivity {
         Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
-                Intent intent = new Intent(mContext, TestActivity.class);
+                Intent intent = new Intent(mContext, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

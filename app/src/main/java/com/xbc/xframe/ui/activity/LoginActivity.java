@@ -46,7 +46,8 @@ public class LoginActivity extends BaseActivity {
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                doBottomDialogTest();
+//                doBottomDialogTest();
+                doApiServiceTest2();
             }
         });
     }
@@ -54,6 +55,22 @@ public class LoginActivity extends BaseActivity {
     @Override
     protected void initData() {
 
+    }
+
+
+    private void doApiServiceTest2() {
+        BaseRequest request = new BaseRequest();
+        request.url = "http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=301b490141089aa88d82f47c4e1959b3";
+        new ApiService.Builder()
+                .setRequest(request)
+                .setResponseClass(WeatherResponseBean.class)
+                .setCallback(new Callback<WeatherResponseBean>() {
+                    @Override
+                    public void onSuccess(WeatherResponseBean response) {
+                        LogUtil.i("doApiServiceTest2:" + response.status);
+                    }
+                })
+                .execute();
     }
 
 
@@ -75,23 +92,6 @@ public class LoginActivity extends BaseActivity {
 
             }
         }).show();
-    }
-
-    private void doApiServiceTest() {
-        BaseRequest request = new BaseRequest();
-        request.url = "http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=E4805d16520de693a3fe707cdc962045";
-//        request.param.put("type","1");
-//        request.param.put("id","xbc");
-//        request.param.put("pw","1234");
-//        request.param.put("serno","2");
-        ApiService.getInstance().performGetRequest(request, WeatherResponseBean.class, new Callback<WeatherResponseBean>() {
-            @Override
-            public void onSuccess(WeatherResponseBean response) {
-                LogUtil.i("doApiServiceTest:" + response.weatherInfo.city);
-            }
-
-        });
-
     }
 
     private void doRxJavaOnStartTest() {

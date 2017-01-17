@@ -3,7 +3,7 @@ package com.xbc.xframe.net;
 /**
  * Created by xiaobo.cui on 2016/9/28.
  */
-public class Response {
+public abstract class Response {
 
     public Request request = null;
 
@@ -21,7 +21,6 @@ public class Response {
         return statusCode == 200;
     }
 
-    ;
 
     /**
      * @return HTTP Status Code
@@ -29,7 +28,5 @@ public class Response {
     public int getStatusCode() {
         return statusCode;
     }
-
-    ;
 
 }

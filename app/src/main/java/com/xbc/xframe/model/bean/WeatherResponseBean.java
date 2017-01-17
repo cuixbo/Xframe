@@ -8,6 +8,8 @@ import com.xbc.xframe.net.BaseResponse;
 public class WeatherResponseBean extends BaseResponse {
 
     public WeatherInfo weatherInfo;
+    public int error;
+    public String status;
 
     public class WeatherInfo {
         public String city;

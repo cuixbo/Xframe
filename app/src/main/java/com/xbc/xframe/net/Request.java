@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by xiaobo.cui on 2016/9/28.
  */
-public class Request {
+public abstract class Request {
 
     public String _device;
 
