@@ -10,6 +10,7 @@ import com.xbc.xframe.R;
 import com.xbc.xframe.app.base.BaseActivity;
 import com.xbc.xframe.ui.fragment.TestLiteOrmFragment;
 import com.xbc.xframe.ui.fragment.TestShapeSelectorFragment;
+import com.xbc.xframe.ui.fragment.TestToastFragment;
 
 import butterknife.BindView;
 
@@ -41,6 +42,9 @@ public class TestFragmentActivity extends BaseActivity {
         FragmentTransaction ft = fm.beginTransaction();
         Fragment fragment=null;
         switch (mTestId){
+            case 2:
+                fragment=new TestToastFragment();
+                break;
             case 1:
                 fragment=new TestShapeSelectorFragment();
                 break;

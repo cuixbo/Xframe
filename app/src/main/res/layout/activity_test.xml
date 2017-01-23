@@ -19,4 +19,16 @@
         android:layout_height="50dp"
         android:text="test shape selector"/>
 
+    <Button
+        android:id="@+id/btn_test_toast"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="test toast"/>
+
+    <Button
+        android:id="@+id/btn_test_photo_preview"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="test photo preview"/>
+
 </LinearLayout>

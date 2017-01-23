@@ -20,6 +20,10 @@ public class TestActivity extends BaseActivity {
     Button mBtnTestLiteOrm;
     @BindView(R.id.btn_test_shape_selector)
     Button mBtnTestShapeSelector;
+    @BindView(R.id.btn_test_toast)
+    Button mBtnTestToast;
+    @BindView(R.id.btn_test_photo_preview)
+    Button mBtnTestPhotoPreview;
 
 
     @Override
@@ -54,6 +58,20 @@ public class TestActivity extends BaseActivity {
                 doShapeSelectorTest();
             }
         });
+
+        mBtnTestToast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doToastTest();
+            }
+        });
+
+        mBtnTestPhotoPreview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doPhotoPreviewTest();
+            }
+        });
     }
 
     @Override
@@ -66,9 +84,45 @@ public class TestActivity extends BaseActivity {
         intent.putExtra("testId",0);
         startActivity(intent);
     }
+
     public void doShapeSelectorTest() {
         Intent intent=new Intent(mContext, TestFragmentActivity.class);
         intent.putExtra("testId",1);
+        startActivity(intent);
+    }
+
+    public void doToastTest() {
+        Intent intent=new Intent(mContext, TestFragmentActivity.class);
+        intent.putExtra("testId",2);
+        startActivity(intent);
+    }
+
+    public void doPhotoPreviewTest() {
+        Intent intent=new Intent(mContext, PhotoPreviewActivity.class);
+        intent.putExtra("testId",3);
+        intent.putExtra("imgIds",new int[]{R.mipmap.ic_launcher,R.drawable.icon_success,R.drawable.icon_warn});
+        intent.putExtra("index",0);
+        String[] urls=new String[]{
+                "http://dwz.cn/57ZdXt",
+                "http://dwz.cn/57ZkVq",
+                "http://dwz.cn/57ZlQh",
+                "http://dwz.cn/57ZzuA",
+                "http://dwz.cn/57ZmPg",
+                "http://dwz.cn/57ZmYC",
+                "http://dwz.cn/57ZnBL",
+                "http://dwz.cn/57ZoEY",
+                "http://dwz.cn/57ZoL5",
+                "http://dwz.cn/57Zp5Z",
+                "http://dwz.cn/57Zpx3",
+                "http://dwz.cn/57ZpR0",
+                "http://dwz.cn/57ZqzP",
+                "http://dwz.cn/57ZqWw",
+                "http://dwz.cn/57ZtF9",
+                "http://dwz.cn/57ZtYB",
+                "http://dwz.cn/57ZlKd"
+        };
+        intent.putExtra("urls",urls);
+//        intent.putExtra("paths",new String[]{"/mnt/sdcard/pic.jpg"});
         startActivity(intent);
     }
 

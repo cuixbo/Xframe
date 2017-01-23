@@ -75,7 +75,7 @@ public class BitmapUtil {
     }
 
     /**
-     * scale image
+     * Scale image by Matrix
      */
     public static Bitmap scaleImage(Bitmap org, float scaleWidth, float scaleHeight) {
         if (org == null) {
@@ -85,6 +85,7 @@ public class BitmapUtil {
         matrix.postScale(scaleWidth, scaleHeight);
         return Bitmap.createBitmap(org, 0, 0, org.getWidth(), org.getHeight(), matrix, true);
     }
+
 
     public static Bitmap toRoundCorner(Bitmap bitmap) {
         int height = bitmap.getHeight();
@@ -121,6 +122,7 @@ public class BitmapUtil {
             bitMap.recycle();
         return newBitMap;
     }
+
 
     public static boolean saveBitmap(Bitmap bitmap, File file) {
         if (bitmap == null)
@@ -223,6 +225,7 @@ public class BitmapUtil {
         return BitmapFactory.decodeFile(filePath, options);
     }
 
+
     public byte[] compressBitmapToBytes(String filePath, int reqWidth, int reqHeight, int quality) {
         Bitmap bitmap = getSmallBitmap(filePath, reqWidth, reqHeight);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -233,21 +236,48 @@ public class BitmapUtil {
         return bytes;
     }
 
-    public byte[] compressBitmapSmallTo(String filePath, int reqWidth, int reqHeight, int maxLenth) {
+    public byte[] compressBitmapSmallTo(String filePath, int reqWidth, int reqHeight, int maxLength) {
         int quality = 100;
         byte[] bytes = compressBitmapToBytes(filePath, reqWidth, reqHeight, quality);
-        while (bytes.length > maxLenth && quality > 0) {
+        while (bytes.length > maxLength && quality > 0) {
             quality = quality / 2;
             bytes = compressBitmapToBytes(filePath, reqWidth, reqHeight, quality);
         }
         return bytes;
     }
 
-    public byte[] compressBitmapQuikly(String filePath) {
+    public byte[] compressBitmapQuickly(String filePath) {
         return compressBitmapToBytes(filePath, 480, 800, 50);
     }
 
-    public byte[] compressBitmapQuiklySmallTo(String filePath, int maxLenth) {
-        return compressBitmapSmallTo(filePath, 480, 800, maxLenth);
+    public byte[] compressBitmapQuicklySmallTo(String filePath, int maxLength) {
+        return compressBitmapSmallTo(filePath, 480, 800, maxLength);
+    }
+
+    /**
+     * 处理超长或超宽的图片
+     * @param bitmap
+     * @param maxSize 最大尺寸：width or height
+     * @return
+     */
+    public static Bitmap getMaxSizedBitmap(Bitmap bitmap, int maxSize) {
+        if (bitmap == null || maxSize <= 0) {
+            return bitmap;
+        }
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        int destWidth, destHeight;
+        if (width > maxSize || height > maxSize) {
+            if (1F * width / maxSize > 1F * height / maxSize) {
+                destWidth = maxSize;
+                destHeight = height * maxSize / width;
+            } else {
+                destHeight = maxSize;
+                destWidth = width * maxSize / height;
+            }
+            return Bitmap.createScaledBitmap(bitmap, destWidth, destHeight, false);
+        } else {
+            return bitmap;
+        }
     }
 }

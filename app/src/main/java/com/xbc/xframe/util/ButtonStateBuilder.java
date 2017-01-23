@@ -7,10 +7,10 @@ import android.view.View;
 import android.widget.TextView;
 
 /**
+ * 给TextView,Button修改背景及文字颜色;
+ * 也可以给ViewGroup修改背景;
  * Created by xiaobo.cui on 2017/1/17.
  */
-
-
 public class ButtonStateBuilder {
     View mView;
     StateListDrawable mStateListDrawable = new StateListDrawable();
@@ -30,11 +30,20 @@ public class ButtonStateBuilder {
     int mPressedTextColor;
     int mDisabledTextColor;
 
+    /**
+     * 设置需要改变的TextView,Button
+     */
     public ButtonStateBuilder setView(View view) {
         this.mView = view;
         return this;
     }
 
+    /**
+     * 设置矩形圆角半径,多状态共用
+     *
+     * @param cornerRadius 单位px
+     * @return
+     */
     public ButtonStateBuilder setCornerRadius(int cornerRadius) {
         this.mCornerRadius = cornerRadius;
         mNormalDrawable.setCornerRadius(cornerRadius);
@@ -43,6 +52,12 @@ public class ButtonStateBuilder {
         return this;
     }
 
+    /**
+     * 设置描边线框宽度,多状态共用
+     *
+     * @param strokeWidth 单位px
+     * @return
+     */
     public ButtonStateBuilder setStrokeWidth(int strokeWidth) {
         this.mStrokeWidth = strokeWidth;
         mNormalDrawable.setStroke(mStrokeWidth, mNormalStrokeColor);
@@ -51,6 +66,13 @@ public class ButtonStateBuilder {
         return this;
     }
 
+    /**
+     * 设置正常状态下的填充颜色,描边颜色,没有可以设0
+     *
+     * @param solidColor
+     * @param strokeColor
+     * @return
+     */
     public ButtonStateBuilder setNormal(int solidColor, int strokeColor) {
         mNormalDrawable.setColor(solidColor);
         mNormalStrokeColor = strokeColor;
@@ -58,6 +80,13 @@ public class ButtonStateBuilder {
         return this;
     }
 
+    /**
+     * 设置按下状态下的填充颜色,描边颜色,没有可以设0
+     *
+     * @param solidColor
+     * @param strokeColor
+     * @return
+     */
     public ButtonStateBuilder setPressed(int solidColor, int strokeColor) {
         mPressedDrawable.setColor(solidColor);
         mPressedStrokeColor = strokeColor;
@@ -65,6 +94,13 @@ public class ButtonStateBuilder {
         return this;
     }
 
+    /**
+     * 设置禁用状态下的填充颜色,描边颜色,没有可以设0
+     *
+     * @param solidColor
+     * @param strokeColor
+     * @return
+     */
     public ButtonStateBuilder setDisabled(int solidColor, int strokeColor) {
         mDisabledDrawable.setColor(solidColor);
         mDisabledStrokeColor = strokeColor;
@@ -93,7 +129,14 @@ public class ButtonStateBuilder {
         return this;
     }
 
-
+    /**
+     * 设置文字在不同状态下的颜色
+     *
+     * @param normalColor
+     * @param pressedColor
+     * @param disabledColor
+     * @return
+     */
     public ButtonStateBuilder setTextColor(int normalColor, int pressedColor, int disabledColor) {
         this.mNormalTextColor = normalColor;
         this.mPressedTextColor = pressedColor;
@@ -107,14 +150,19 @@ public class ButtonStateBuilder {
         return this;
     }
 
+    /**
+     * 为TextView构建背景及文字颜色
+     */
     public ButtonStateBuilder build() {
-        mStateListDrawable.addState(new int[]{-android.R.attr.state_enabled}, mDisabledDrawable);
-        mStateListDrawable.addState(new int[]{android.R.attr.state_pressed}, mPressedDrawable);
-        mStateListDrawable.addState(new int[]{}, mNormalDrawable);
-        mView.setBackgroundDrawable(mStateListDrawable);
-        if (mColorStateList != null && mView instanceof TextView) {
-            TextView castTextView = ((TextView) mView);
-            castTextView.setTextColor(mColorStateList);
+        if (mView != null) {
+            mStateListDrawable.addState(new int[]{-android.R.attr.state_enabled}, mDisabledDrawable);
+            mStateListDrawable.addState(new int[]{android.R.attr.state_pressed}, mPressedDrawable);
+            mStateListDrawable.addState(new int[]{}, mNormalDrawable);
+            mView.setBackgroundDrawable(mStateListDrawable);
+            if (mColorStateList != null && mView instanceof TextView) {
+                TextView castTextView = ((TextView) mView);
+                castTextView.setTextColor(mColorStateList);
+            }
         }
         return this;
     }
