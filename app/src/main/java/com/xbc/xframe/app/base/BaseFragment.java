@@ -3,6 +3,7 @@ package com.xbc.xframe.app.base;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,12 +18,24 @@ import butterknife.ButterKnife;
  * Created by xiaobo.cui on 2016/9/22.
  */
 public abstract class BaseFragment extends Fragment {
+    private static final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
+
     protected Context mContext;
     private int layoutResId;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (savedInstanceState != null) {
+            boolean isSupportHidden = savedInstanceState.getBoolean(STATE_SAVE_IS_HIDDEN);
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            if (isSupportHidden) {
+                ft.hide(this);
+            } else {
+                ft.show(this);
+            }
+            ft.commit();
+        }
     }
 
     @Nullable
@@ -39,6 +52,12 @@ public abstract class BaseFragment extends Fragment {
 
     protected void setContentView(int layoutResId){
         this.layoutResId=layoutResId;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean(STATE_SAVE_IS_HIDDEN, isHidden());
+        super.onSaveInstanceState(outState);
     }
 
     @Override

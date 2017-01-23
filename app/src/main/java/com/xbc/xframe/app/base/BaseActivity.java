@@ -13,10 +13,11 @@ import butterknife.ButterKnife;
 public abstract class BaseActivity extends Activity {
 
     protected Context mContext;
-
+    protected Bundle savedInstanceState;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.savedInstanceState=savedInstanceState;
         this.mContext = this;
     }
 

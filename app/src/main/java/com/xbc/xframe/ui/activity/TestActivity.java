@@ -24,6 +24,8 @@ public class TestActivity extends BaseActivity {
     Button mBtnTestToast;
     @BindView(R.id.btn_test_photo_preview)
     Button mBtnTestPhotoPreview;
+    @BindView(R.id.btn_test_date_picker)
+    Button mBtnTestDatePicker;
 
 
     @Override
@@ -72,6 +74,13 @@ public class TestActivity extends BaseActivity {
                 doPhotoPreviewTest();
             }
         });
+
+        mBtnTestDatePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doDatePickerTest();
+            }
+        });
     }
 
     @Override
@@ -99,7 +108,6 @@ public class TestActivity extends BaseActivity {
 
     public void doPhotoPreviewTest() {
         Intent intent=new Intent(mContext, PhotoPreviewActivity.class);
-        intent.putExtra("testId",3);
         intent.putExtra("imgIds",new int[]{R.mipmap.ic_launcher,R.drawable.icon_success,R.drawable.icon_warn});
         intent.putExtra("index",0);
         String[] urls=new String[]{
@@ -123,6 +131,12 @@ public class TestActivity extends BaseActivity {
         };
         intent.putExtra("urls",urls);
 //        intent.putExtra("paths",new String[]{"/mnt/sdcard/pic.jpg"});
+        startActivity(intent);
+    }
+
+    public void doDatePickerTest() {
+        Intent intent=new Intent(mContext, TestFragmentActivity.class);
+        intent.putExtra("testId",3);
         startActivity(intent);
     }
 

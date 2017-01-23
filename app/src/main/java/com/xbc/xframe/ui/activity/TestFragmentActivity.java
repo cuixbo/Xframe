@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 
 import com.xbc.xframe.R;
 import com.xbc.xframe.app.base.BaseActivity;
+import com.xbc.xframe.ui.fragment.TestDatePickerFragment;
 import com.xbc.xframe.ui.fragment.TestLiteOrmFragment;
 import com.xbc.xframe.ui.fragment.TestShapeSelectorFragment;
 import com.xbc.xframe.ui.fragment.TestToastFragment;
@@ -33,29 +34,34 @@ public class TestFragmentActivity extends BaseActivity {
 
     @Override
     protected void initIntent() {
-        mTestId=getIntent().getIntExtra("testId",0);
+        mTestId = getIntent().getIntExtra("testId", 0);
     }
 
     @Override
     protected void initView() {
-        FragmentManager fm = getFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        Fragment fragment=null;
-        switch (mTestId){
-            case 2:
-                fragment=new TestToastFragment();
-                break;
-            case 1:
-                fragment=new TestShapeSelectorFragment();
-                break;
-            case 0:
-                fragment=new TestLiteOrmFragment();
-                break;
-            default:
-                break;
+        if (savedInstanceState == null) {
+            FragmentManager fm = getFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            Fragment fragment = null;
+            switch (mTestId) {
+                case 3:
+                    fragment = new TestDatePickerFragment();
+                    break;
+                case 2:
+                    fragment = new TestToastFragment();
+                    break;
+                case 1:
+                    fragment = new TestShapeSelectorFragment();
+                    break;
+                case 0:
+                    fragment = new TestLiteOrmFragment();
+                    break;
+                default:
+                    break;
+            }
+            ft.add(R.id.fl_fragment_container, fragment, fragment.getClass().getSimpleName());
+            ft.commitAllowingStateLoss();
         }
-        ft.add(R.id.fl_fragment_container, fragment, fragment.getClass().getSimpleName());
-        ft.commitAllowingStateLoss();
     }
 
     @Override
