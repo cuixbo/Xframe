@@ -49,19 +49,30 @@
         android:orientation="horizontal">
 
         <NumberPicker
-            android:id="@+id/np_year"
+            android:id="@+id/np_left"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"/>
 
         <NumberPicker
-            android:id="@+id/np_month"
+            android:id="@+id/np_hour"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"/>
 
         <NumberPicker
-            android:id="@+id/np_day"
+            android:id="@+id/np_sign"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"/>
+
+        <NumberPicker
+            android:id="@+id/np_min"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"/>
+
+        <NumberPicker
+            android:id="@+id/np_right"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1.0"/>

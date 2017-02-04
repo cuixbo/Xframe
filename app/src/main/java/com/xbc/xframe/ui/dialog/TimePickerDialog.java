@@ -13,7 +13,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.xbc.xframe.R;
-import com.xbc.xframe.ui.widget.DatePickerData;
+import com.xbc.xframe.ui.widget.TimePickerData;
 import com.xbc.xframe.util.ToastUtil;
 
 import java.lang.reflect.Field;
@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
  * Created by xiaobo.cui on 2016/11/8.
  */
 
-public class DatePickerDialog extends Dialog {
+public class TimePickerDialog extends Dialog {
 
     private Context mContext;
     @BindView(R.id.tv_cancel)
@@ -35,23 +35,25 @@ public class DatePickerDialog extends Dialog {
     TextView mTvTitle;
     @BindView(R.id.tv_ok)
     TextView mTvOk;
-    @BindView(R.id.np_year)
-    NumberPicker mNpYear;
-    @BindView(R.id.np_month)
-    NumberPicker mNpMonth;
-    @BindView(R.id.np_day)
-    NumberPicker mNpDay;
+    @BindView(R.id.np_hour)
+    NumberPicker mNpHour;
+    @BindView(R.id.np_min)
+    NumberPicker mNpMin;
+    @BindView(R.id.np_sign)
+    NumberPicker mNpSign;
+    @BindView(R.id.np_left)
+    NumberPicker mNpLeft;
+    @BindView(R.id.np_right)
+    NumberPicker mNpRight;
 
-    DatePickerData mDatePickerData = new DatePickerData();
-
-    public DatePickerDialog(Context context) {
+    public TimePickerDialog(Context context) {
         super(context, R.style.BottomDialog);
         init(context);
     }
 
     private void init(Context context) {
         this.mContext = context;
-        setContentView(R.layout.dialog_bottom_date_picker);
+        setContentView(R.layout.dialog_bottom_time_picker);
         ButterKnife.bind(this);
         setCanceledOnTouchOutside(true);
         setWindowAttributes();
@@ -72,41 +74,53 @@ public class DatePickerDialog extends Dialog {
     }
 
     protected void initView() {
-        //截止输入
-        mNpYear.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-        mNpMonth.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
-        mNpDay.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        //禁止输入
+        mNpHour.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        mNpMin.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        mNpSign.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        mNpLeft.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        mNpRight.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 
-        Calendar calendar=Calendar.getInstance();
-        int defaultYear=calendar.get(Calendar.YEAR);
-        int defaultMonth=calendar.get(Calendar.MONTH)+1;
-        int defaultDay=calendar.get(Calendar.DAY_OF_MONTH);
-        DatePickerData.YearData yearData = new DatePickerData.YearData(2050, 1970, defaultYear);
-        mNpYear.setMaxValue(yearData.maxValue);
-        mNpYear.setMinValue(yearData.minValue);
-        mNpYear.setValue(yearData.defaultValue);
+        Calendar calendar = Calendar.getInstance();
+        int defaultHour = calendar.get(Calendar.HOUR_OF_DAY);
+        int defaultMin = calendar.get(Calendar.MINUTE);
+        int defaultSec = calendar.get(Calendar.SECOND);
+        TimePickerData.HourData hourData = new TimePickerData.HourData(23, 0, defaultHour);
+        mNpHour.setMaxValue(hourData.maxValue);
+        mNpHour.setMinValue(hourData.minValue);
+        mNpHour.setValue(hourData.defaultValue);
 
-        DatePickerData.MonthData monthData = new DatePickerData.MonthData(12, 1, defaultMonth);
-        mNpMonth.setMaxValue(monthData.maxValue);
-        mNpMonth.setMinValue(monthData.minValue);
-        mNpMonth.setValue(monthData.defaultValue);
+        TimePickerData.MinData minData = new TimePickerData.MinData(59, 0, defaultMin);
+        mNpMin.setMaxValue(minData.maxValue);
+        mNpMin.setMinValue(minData.minValue);
+        mNpMin.setValue(minData.defaultValue);
 
-        DatePickerData.DayData dayData = new DatePickerData.DayData(31, 1, defaultDay);
-        mNpDay.setMaxValue(dayData.maxValue);
-        mNpDay.setMinValue(dayData.minValue);
-        mNpDay.setValue(dayData.defaultValue);
+        mNpSign.setDisplayedValues(new String[]{":"});
+        mNpLeft.setDisplayedValues(new String[]{""});
+        mNpRight.setDisplayedValues(new String[]{""});
 
-        setNumberPickerDividerColor(mNpYear);
-        setNumberPickerDividerColor(mNpMonth);
-        setNumberPickerDividerColor(mNpDay);
+//        TimePickerData.SecData secData = new TimePickerData.SecData(59, 0, defaultMin);
+//        mNpSec.setMaxValue(secData.maxValue);
+//        mNpSec.setMinValue(secData.minValue);
+//        mNpSec.setValue(secData.defaultValue);
 
-        setNumberPickerDividerHeight(mNpYear);
-        setNumberPickerDividerHeight(mNpMonth);
-        setNumberPickerDividerHeight(mNpDay);
+        setNumberPickerDividerColor(mNpHour);
+        setNumberPickerDividerColor(mNpMin);
+        setNumberPickerDividerColor(mNpSign);
+        setNumberPickerDividerColor(mNpLeft);
+        setNumberPickerDividerColor(mNpRight);
 
-        hideNumberPickerInputText(mNpYear);
-        hideNumberPickerInputText(mNpMonth);
-        hideNumberPickerInputText(mNpDay);
+        setNumberPickerDividerHeight(mNpHour);
+        setNumberPickerDividerHeight(mNpMin);
+        setNumberPickerDividerHeight(mNpSign);
+        setNumberPickerDividerHeight(mNpLeft);
+        setNumberPickerDividerHeight(mNpRight);
+
+        hideNumberPickerInputText(mNpHour);
+        hideNumberPickerInputText(mNpMin);
+        hideNumberPickerInputText(mNpSign);
+        hideNumberPickerInputText(mNpLeft);
+        hideNumberPickerInputText(mNpRight);
     }
 
 
@@ -123,78 +137,76 @@ public class DatePickerDialog extends Dialog {
             @Override
             public void onClick(View v) {
                 dismiss();
-                String result=mNpYear.getValue()+"年"+mNpMonth.getValue()+"月"+mNpDay.getValue()+"日";
+                String result = mNpHour.getValue() + ":" + mNpMin.getValue() + "";
                 ToastUtil.showToast(result);
             }
         });
 
 
-        mNpYear.setFormatter(new NumberPicker.Formatter() {
+        mNpHour.setFormatter(new NumberPicker.Formatter() {
             @Override
             public String format(int value) {
-
-                return value + "年";
+                String ret = value < 10 ? "0" + value : value + "";
+                return ret;
             }
         });
 
 
-        mNpMonth.setFormatter(new NumberPicker.Formatter() {
+        mNpMin.setFormatter(new NumberPicker.Formatter() {
             @Override
             public String format(int value) {
-
-                return value + "月";
-            }
-        });
-        mNpDay.setFormatter(new NumberPicker.Formatter() {
-            @Override
-            public String format(int value) {
-
-                return value + "日";
+                String ret = value < 10 ? "0" + value : value + "";
+                return ret;
             }
         });
 
         //需要设置OnClickListener
-        mNpYear.setOnClickListener(new View.OnClickListener() {
+        mNpHour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
 
-        mNpMonth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-        mNpDay.setOnClickListener(new View.OnClickListener() {
+        mNpMin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
             }
         });
 
-        mNpYear.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        mNpSign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        mNpLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        mNpRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        mNpHour.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-//                Log.e("xbc", "old:" + oldVal + ",new:" + newVal);
-                DatePickerData.DateData data = mDatePickerData.getData(newVal, mNpMonth.getValue(), mNpDay.getValue());
-                mNpYear.setValue(data.year);
-                mNpMonth.setValue(data.month);
-                mNpDay.setMaxValue(data.maxDay);
-                mNpDay.setValue(data.day);
+
             }
         });
 
-        mNpMonth.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+        mNpMin.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
             @Override
             public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-//                Log.e("xbc", "old:" + oldVal + ",new:" + newVal);
-                DatePickerData.DateData data = mDatePickerData.getData(mNpYear.getValue(), newVal, mNpDay.getValue());
-                mNpYear.setValue(data.year);
-                mNpMonth.setValue(data.month);
-                mNpDay.setMaxValue(data.maxDay);
-                mNpDay.setValue(data.day);
+
             }
         });
     }
@@ -202,6 +214,7 @@ public class DatePickerDialog extends Dialog {
 
     /**
      * 设置分割线颜色
+     *
      * @param numberPicker
      */
     private void setNumberPickerDividerColor(NumberPicker numberPicker) {
@@ -223,6 +236,7 @@ public class DatePickerDialog extends Dialog {
 
     /**
      * 设置分割线颜色
+     *
      * @param numberPicker
      */
     private void setNumberPickerDividerHeight(NumberPicker numberPicker) {
@@ -268,27 +282,12 @@ public class DatePickerDialog extends Dialog {
         }
     }
 
-    public DatePickerDialog setDate(int year,int month,int day){
-        mNpYear.setValue(year);
-        mNpMonth.setValue(month);
-        mNpDay.setValue(day);
+    public TimePickerDialog setTime(int hour, int min) {
+        mNpHour.setValue(hour);
+        mNpMin.setValue(min);
         return this;
     }
 
-    public DatePickerDialog setMaxYear(int value){
-        mNpYear.setMaxValue(value);
-        return this;
-    }
-
-    public DatePickerDialog setMinYear(int value){
-        mNpYear.setMinValue(value);
-        return this;
-    }
-
-    public DatePickerDialog setYearWrap(boolean wrap){
-        mNpYear.setWrapSelectorWheel(wrap);
-        return this;
-    }
 
     @Override
     public void show() {

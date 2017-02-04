@@ -45,6 +45,8 @@ public class SplashActivity extends BaseActivity {
             @Override
             public void call(Subscriber<? super String> subscriber) {
                 Intent intent = new Intent(mContext, TestActivity.class);
+//                Intent intent = new Intent(mContext, TestFragmentActivity.class);
+                intent.putExtra("testId",3);
                 startActivity(intent);
                 finish();
             }
