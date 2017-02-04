@@ -1,4 +1,4 @@
-package com.xbc.xframe.ui.widget;
+package com.xbc.xframe.ui.widget.picker;
 
 /**
  * Created by xiaobo.cui on 2017/1/23.
@@ -58,32 +58,32 @@ public class DatePickerData {
     public DateData getData(int year, int month, int day) {
         DateData dateData = null;
         boolean isLeapYear = isLeapYear(year);
-        int monthLevel = getMonthLevel(year,month);
-        if(monthLevel==4){
-            dateData=new DateData(year, month, day);
-            dateData.maxDay=31;
-        }else if(monthLevel==3){
-            if(day==31){
-                dateData=new DateData(year, month, 30);
+        int monthLevel = getMonthLevel(year, month);
+        if (monthLevel == 4) {
+            dateData = new DateData(year, month, day);
+            dateData.maxDay = 31;
+        } else if (monthLevel == 3) {
+            if (day == 31) {
+                dateData = new DateData(year, month, 30);
 
-            }else{
-                dateData=new DateData(year, month, day);
+            } else {
+                dateData = new DateData(year, month, day);
             }
-            dateData.maxDay=30;
-        }else if(monthLevel==2){
-            if(day>29){
-                dateData=new DateData(year, month, 29);
-            }else{
-                dateData=new DateData(year, month, day);
+            dateData.maxDay = 30;
+        } else if (monthLevel == 2) {
+            if (day > 29) {
+                dateData = new DateData(year, month, 29);
+            } else {
+                dateData = new DateData(year, month, day);
             }
-            dateData.maxDay=29;
-        }else{
-            if(day>28){
-                dateData=new DateData(year, month, 28);
-            }else{
-                dateData=new DateData(year, month, day);
+            dateData.maxDay = 29;
+        } else {
+            if (day > 28) {
+                dateData = new DateData(year, month, 28);
+            } else {
+                dateData = new DateData(year, month, day);
             }
-            dateData.maxDay=28;
+            dateData.maxDay = 28;
         }
         return dateData;
     }
@@ -104,6 +104,7 @@ public class DatePickerData {
 
     /**
      * 是否闰年
+     *
      * @param year
      * @return
      */

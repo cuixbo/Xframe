@@ -14,10 +14,11 @@ public abstract class BaseActivity extends Activity {
 
     protected Context mContext;
     protected Bundle savedInstanceState;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.savedInstanceState=savedInstanceState;
+        this.savedInstanceState = savedInstanceState;
         this.mContext = this;
     }
 
@@ -33,7 +34,7 @@ public abstract class BaseActivity extends Activity {
         init();
     }
 
-    public void init(){
+    public void init() {
         initIntent();
         ButterKnife.bind(this);
         initView();

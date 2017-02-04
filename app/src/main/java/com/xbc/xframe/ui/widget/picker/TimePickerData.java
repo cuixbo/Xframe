@@ -1,4 +1,4 @@
-package com.xbc.xframe.ui.widget;
+package com.xbc.xframe.ui.widget.picker;
 
 /**
  * Created by xiaobo.cui on 2017/1/23.

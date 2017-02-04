@@ -23,7 +23,6 @@ public class TestToastFragment extends BaseFragment {
     TextView mTvTestToast;
 
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -56,13 +55,14 @@ public class TestToastFragment extends BaseFragment {
 
     }
 
-    int i=0;
-    public void showCustomToast(){
+    int i = 0;
+
+    public void showCustomToast() {
         i++;
-        if(i%2==0){
-            ToastUtil.showToastSuccess(mContext,"已收藏");
-        }else{
-            ToastUtil.showToastWarn(mContext,"已取消收藏");
+        if (i % 2 == 0) {
+            ToastUtil.showToastSuccess(mContext, "已收藏");
+        } else {
+            ToastUtil.showToastWarn(mContext, "已取消收藏");
         }
     }
 

@@ -42,7 +42,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(layoutResId, container, false);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         initArguments();
         initView();
         initListener();
@@ -50,8 +50,8 @@ public abstract class BaseFragment extends Fragment {
         return view;
     }
 
-    protected void setContentView(int layoutResId){
-        this.layoutResId=layoutResId;
+    protected void setContentView(int layoutResId) {
+        this.layoutResId = layoutResId;
     }
 
     @Override
@@ -94,15 +94,15 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        mContext=context;
+        mContext = context;
     }
 
     @SuppressWarnings("deprecation")// api <23
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        if(Build.VERSION.SDK_INT<Build.VERSION_CODES.M){
-            mContext=activity;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            mContext = activity;
         }
     }
 

@@ -9,9 +9,9 @@ import android.widget.Button;
 
 import com.xbc.xframe.R;
 import com.xbc.xframe.app.base.BaseFragment;
-import com.xbc.xframe.ui.dialog.DatePickerDialog;
-import com.xbc.xframe.ui.dialog.TimePickerDialog;
-import com.xbc.xframe.ui.widget.DatePickerData;
+import com.xbc.xframe.ui.widget.picker.DatePickerData;
+import com.xbc.xframe.ui.widget.picker.DatePickerDialog;
+import com.xbc.xframe.ui.widget.picker.TimePickerDialog;
 import com.xbc.xframe.util.RandomUtil;
 
 import butterknife.BindView;
@@ -45,9 +45,10 @@ public class TestDatePickerFragment extends BaseFragment {
     }
 
     int i = 0;
+
     @Override
     protected void initListener() {
-        i= RandomUtil.getRandom(5);
+        i = RandomUtil.getRandom(5);
         mBtnInDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

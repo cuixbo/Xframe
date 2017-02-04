@@ -256,6 +256,7 @@ public class BitmapUtil {
 
     /**
      * 处理超长或超宽的图片
+     *
      * @param bitmap
      * @param maxSize 最大尺寸：width or height
      * @return

@@ -113,7 +113,7 @@ public class BottomDialog extends Dialog {
         return this;
     }
 
-    public BottomDialog addItem(String desc, int height, float textSize, int textColor,final View.OnClickListener listener) {
+    public BottomDialog addItem(String desc, int height, float textSize, int textColor, final View.OnClickListener listener) {
         TextView item = (TextView) getLayoutInflater().inflate(R.layout.item_dialog_tv, llItemContainer, false);
         item.setText(desc);
         item.setHeight((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, height, mContext.getResources().getDisplayMetrics()));
@@ -122,7 +122,7 @@ public class BottomDialog extends Dialog {
         item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(listener!=null){
+                if (listener != null) {
                     listener.onClick(v);
                 }
                 dismiss();

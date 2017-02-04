@@ -40,7 +40,7 @@ public class XApplication extends BaseApplication {
      */
     public void onAppStart() {
         CrashHandler.getInstance().init(getInstance());
-        DBManager.getInstance().init(getInstance(),"1");
+        DBManager.getInstance().init(getInstance(), "1");
     }
 
     /**

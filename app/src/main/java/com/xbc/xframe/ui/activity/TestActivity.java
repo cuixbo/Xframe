@@ -89,28 +89,28 @@ public class TestActivity extends BaseActivity {
     }
 
     public void doLiteOrmTest() {
-        Intent intent=new Intent(mContext, TestFragmentActivity.class);
-        intent.putExtra("testId",0);
+        Intent intent = new Intent(mContext, TestFragmentActivity.class);
+        intent.putExtra("testId", 0);
         startActivity(intent);
     }
 
     public void doShapeSelectorTest() {
-        Intent intent=new Intent(mContext, TestFragmentActivity.class);
-        intent.putExtra("testId",1);
+        Intent intent = new Intent(mContext, TestFragmentActivity.class);
+        intent.putExtra("testId", 1);
         startActivity(intent);
     }
 
     public void doToastTest() {
-        Intent intent=new Intent(mContext, TestFragmentActivity.class);
-        intent.putExtra("testId",2);
+        Intent intent = new Intent(mContext, TestFragmentActivity.class);
+        intent.putExtra("testId", 2);
         startActivity(intent);
     }
 
     public void doPhotoPreviewTest() {
-        Intent intent=new Intent(mContext, PhotoPreviewActivity.class);
-        intent.putExtra("imgIds",new int[]{R.mipmap.ic_launcher,R.drawable.icon_success,R.drawable.icon_warn});
-        intent.putExtra("index",0);
-        String[] urls=new String[]{
+        Intent intent = new Intent(mContext, PhotoPreviewActivity.class);
+        intent.putExtra("imgIds", new int[]{R.mipmap.ic_launcher, R.drawable.icon_success, R.drawable.icon_warn});
+        intent.putExtra("index", 0);
+        String[] urls = new String[]{
                 "http://dwz.cn/57ZdXt",
                 "http://dwz.cn/57ZkVq",
                 "http://dwz.cn/57ZlQh",
@@ -129,14 +129,14 @@ public class TestActivity extends BaseActivity {
                 "http://dwz.cn/57ZtYB",
                 "http://dwz.cn/57ZlKd"
         };
-        intent.putExtra("urls",urls);
+        intent.putExtra("urls", urls);
 //        intent.putExtra("paths",new String[]{"/mnt/sdcard/pic.jpg"});
         startActivity(intent);
     }
 
     public void doDatePickerTest() {
-        Intent intent=new Intent(mContext, TestFragmentActivity.class);
-        intent.putExtra("testId",3);
+        Intent intent = new Intent(mContext, TestFragmentActivity.class);
+        intent.putExtra("testId", 3);
         startActivity(intent);
     }
 
