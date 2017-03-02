@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!--natural color-->
+    <color name="colorWhite">#f0f0f0</color>
+    <color name="colorBlack">#f0f0f0</color>
+    <!--main color-->
+    <color name="colorMain">#FF4081</color>
+    <color name="colorNav">#FF4081</color>
+    <!--layout bg-->
+    <color name="colorBgDefault">#ffffff</color>
+    <color name="colorBgGray">#f7f7f7</color>
+    <!--divider bg-->
+    <color name="colorDividerDefault">#e0e0e0</color>
+    <!--dialog btn,text bg-->
+    <color name="colorDialogBtnBgNormal">#f7f7f7</color>
+    <color name="colorDialogBtnBgPress">#f0f0f0</color>
+    <!--text color-->
+    <color name="colorTextDark">#333333</color>
+    <color name="colorTextDeepGray">#666666</color>
+    <color name="colorTextMediumGray">#999999</color>
+    <color name="colorTextLightGray">#cccccc</color>
+    <color name="colorTextHighlightRed">#e14123</color>
+</resources>

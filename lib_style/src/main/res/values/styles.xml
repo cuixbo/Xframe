@@ -1,7 +1,7 @@
 <resources>
 
     <!-- bottom dialog theme -->
-    <style name="BottomDialog22" parent="Theme.AppCompat.Light.Dialog">
+    <style name="BottomDialog" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">false</item>
@@ -9,6 +9,22 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:backgroundDimAmount">0.45</item>
         <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimation</item>
+    </style>
+    <!-- bottom dialog animation(slide up , down) -->
+    <style name="DialogAnimation" parent="@android:style/Animation">
+        <item name="@android:windowEnterAnimation">@anim/dialog_enter</item>
+        <item name="@android:windowExitAnimation">@anim/dialog_exit</item>
+    </style>
+    <!-- bottom dialog btn style -->
+    <style name="DialogButtonStyle">
+        <item name="android:layout_height">52dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/selector_dialog_btn_bg</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorTextMediumGray</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:textColorHint">@color/colorTextLightGray</item>
     </style>
 
 </resources>
