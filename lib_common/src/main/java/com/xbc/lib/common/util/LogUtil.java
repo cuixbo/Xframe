@@ -1,4 +1,4 @@
-package com.xbc.xframe.util;
+package com.xbc.lib.common.util;
 
 import android.text.TextUtils;
 import android.util.Log;
@@ -63,7 +63,7 @@ public class LogUtil {
     public static void ptf(String tag, String info) {
         if (!mDebug) return;
         if (TextUtils.isEmpty(info)) return;
-
+        //TODO
     }
 
 }

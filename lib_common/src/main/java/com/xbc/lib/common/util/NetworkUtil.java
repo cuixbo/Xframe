@@ -1,4 +1,4 @@
-package com.xbc.xframe.util;
+package com.xbc.lib.common.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -206,7 +206,6 @@ public class NetworkUtil {
         ConnectivityManager connectivity = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivity != null) {
             NetworkInfo in = connectivity.getActiveNetworkInfo();
-            Log.i(TAG, "-------------$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$-------------");
             Log.i(TAG, "getActiveNetworkInfo: " + in);
             NetworkInfo[] info = connectivity.getAllNetworkInfo();
             if (info != null) {

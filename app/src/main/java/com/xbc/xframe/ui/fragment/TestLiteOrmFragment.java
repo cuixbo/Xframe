@@ -12,7 +12,6 @@ import com.xbc.xframe.app.base.BaseFragment;
 import com.xbc.xframe.db.DBManager;
 import com.xbc.xframe.db.RxDBManager;
 import com.xbc.xframe.model.bean.AccountBean;
-import com.xbc.xframe.util.LogUtil;
 
 import java.util.ArrayList;
 import java.util.List;

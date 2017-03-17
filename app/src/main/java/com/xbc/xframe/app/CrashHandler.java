@@ -4,9 +4,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 
-import com.xbc.xframe.util.AppUtil;
-import com.xbc.xframe.util.LogUtil;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;

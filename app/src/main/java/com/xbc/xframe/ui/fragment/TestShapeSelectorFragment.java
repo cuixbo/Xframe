@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.xbc.lib.common.util.ButtonStateBuilder;
 import com.xbc.lib.common.util.DeviceUtil;
 import com.xbc.xframe.R;
 import com.xbc.xframe.app.base.BaseFragment;
-import com.xbc.xframe.util.ButtonStateBuilder;
 
 import butterknife.BindView;
 

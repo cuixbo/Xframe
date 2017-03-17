@@ -1,4 +1,4 @@
-package com.xbc.xframe.util;
+package com.xbc.lib.common.util;
 
 /**
  * @author xiaobo.cui

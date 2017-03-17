@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.xbc.lib.common.util.LogUtil;
 import com.xbc.xframe.R;
 import com.xbc.xframe.app.base.BaseActivity;
 import com.xbc.xframe.model.bean.WeatherResponseBean;
@@ -11,7 +12,6 @@ import com.xbc.xframe.net.ApiService;
 import com.xbc.xframe.net.BaseRequest;
 import com.xbc.xframe.net.Callback;
 import com.xbc.xframe.ui.dialog.BottomDialog;
-import com.xbc.xframe.util.LogUtil;
 
 import butterknife.BindView;
 import rx.Observable;

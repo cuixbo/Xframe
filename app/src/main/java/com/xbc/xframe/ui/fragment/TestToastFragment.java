@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.xbc.xframe.R;
 import com.xbc.xframe.app.base.BaseFragment;
-import com.xbc.xframe.util.ToastUtil;
 
 import butterknife.BindView;
 

@@ -1,4 +1,4 @@
-package com.xbc.xframe.util;
+package com.xbc.lib.common.util;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.xbc.lib.common.util.DeviceUtil;
 import com.xbc.xframe.R;
 import com.xbc.xframe.app.XApplication;
 

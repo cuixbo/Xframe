@@ -7,12 +7,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.xbc.lib.common.util.RandomUtil;
 import com.xbc.xframe.R;
 import com.xbc.xframe.app.base.BaseFragment;
 import com.xbc.xframe.ui.widget.picker.DatePickerData;
 import com.xbc.xframe.ui.widget.picker.DatePickerDialog;
 import com.xbc.xframe.ui.widget.picker.TimePickerDialog;
-import com.xbc.xframe.util.RandomUtil;
 
 import butterknife.BindView;
 

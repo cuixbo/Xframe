@@ -1,4 +1,4 @@
-package com.xbc.xframe.util;
+package com.xbc.lib.common.util;
 
 import android.content.res.ColorStateList;
 import android.graphics.drawable.GradientDrawable;

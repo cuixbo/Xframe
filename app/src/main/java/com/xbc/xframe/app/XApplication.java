@@ -4,7 +4,6 @@ import android.text.TextUtils;
 
 import com.xbc.xframe.app.base.BaseApplication;
 import com.xbc.xframe.db.DBManager;
-import com.xbc.xframe.util.AppUtil;
 
 /**
  * Created by xiaobo.cui on 2016/9/22.

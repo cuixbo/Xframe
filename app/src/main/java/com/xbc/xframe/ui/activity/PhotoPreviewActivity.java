@@ -23,9 +23,6 @@ import com.rd.animation.AnimationType;
 import com.xbc.xframe.R;
 import com.xbc.xframe.app.base.BaseActivity;
 import com.xbc.xframe.ui.dialog.BottomDialog;
-import com.xbc.xframe.util.BitmapUtil;
-import com.xbc.xframe.util.ButtonStateBuilder;
-import com.xbc.xframe.util.ToastUtil;
 
 import butterknife.BindView;
 import uk.co.senab.photoview.PhotoView;

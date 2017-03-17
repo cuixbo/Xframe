@@ -1,7 +1,7 @@
 package com.xbc.xframe.net;
 
 import com.google.gson.Gson;
-import com.xbc.xframe.util.LogUtil;
+import com.xbc.lib.common.util.LogUtil;
 
 import rx.Observable;
 import rx.Subscriber;
