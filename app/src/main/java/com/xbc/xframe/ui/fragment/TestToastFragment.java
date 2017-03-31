@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.xbc.lib.common.util.ToastUtil;
 import com.xbc.xframe.R;
 import com.xbc.xframe.app.base.BaseFragment;
 

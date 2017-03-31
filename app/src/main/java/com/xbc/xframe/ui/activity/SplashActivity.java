@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.xbc.xframe.R;
 import com.xbc.xframe.app.base.BaseActivity;
+import com.xbc.xframe.service.TestService;
 
 import java.util.concurrent.TimeUnit;
 
@@ -18,6 +19,7 @@ public class SplashActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        startService(new Intent(this, TestService.class));
     }
 
     @Override

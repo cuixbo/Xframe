@@ -3,14 +3,12 @@ package com.xbc.lib.common.util;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.xbc.xframe.app.Config;
-
 /**
  * Created by xiaobo.cui on 2016/9/22.
  */
 public class LogUtil {
     private static final String DEFAULT_TAG = "xbc";
-    private static boolean mDebug = Config.IS_DEBUG;
+    private static boolean mDebug = false;
 
     public static void setDebug(boolean debug) {
         mDebug = debug;

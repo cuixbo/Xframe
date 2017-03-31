@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import com.xbc.xframe.R;
 import com.xbc.xframe.app.base.BaseActivity;
 import com.xbc.xframe.ui.fragment.TestDatePickerFragment;
+import com.xbc.xframe.ui.fragment.TestListViewFragment;
 import com.xbc.xframe.ui.fragment.TestLiteOrmFragment;
 import com.xbc.xframe.ui.fragment.TestShapeSelectorFragment;
 import com.xbc.xframe.ui.fragment.TestToastFragment;
@@ -44,6 +45,9 @@ public class TestFragmentActivity extends BaseActivity {
             FragmentTransaction ft = fm.beginTransaction();
             Fragment fragment = null;
             switch (mTestId) {
+                case 4:
+                    fragment = new TestListViewFragment();
+                    break;
                 case 3:
                     fragment = new TestDatePickerFragment();
                     break;

@@ -4,6 +4,9 @@ import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
 
+import com.xbc.lib.common.util.AppUtil;
+import com.xbc.lib.common.util.LogUtil;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -120,17 +123,17 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
 
             //APP名称
             printWriter.print("APP Name:");
-            printWriter.print(AppUtil.getAppName());
+            printWriter.print(AppUtil.getAppName(mContext));
             printWriter.print("  ");
 
             //APP版本号
             printWriter.print("APP Version:");
-            printWriter.print(AppUtil.getAppVersionName());
+            printWriter.print(AppUtil.getAppVersionName(mContext));
             printWriter.print("  ");
 
             //APP 包名
             printWriter.print("Package Name:");
-            printWriter.print(AppUtil.getPackageName());
+            printWriter.print(AppUtil.getPackageName(mContext));
             printWriter.println("  ");
 
         }

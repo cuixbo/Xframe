@@ -1,5 +1,6 @@
 package com.xbc.xframe;
 
+import android.content.Context;
 import android.os.Environment;
 import android.support.test.uiautomator.UiAutomatorTestCase;
 import android.support.test.uiautomator.UiCollection;
@@ -25,7 +26,6 @@ public class FirstUiautomatorTest extends UiAutomatorTestCase {
         if (!file.exists()) {
             file.mkdirs();
         }
-
 
         // 模拟 HOME 键点击事件
         getUiDevice().pressHome();

@@ -2,6 +2,8 @@ package com.xbc.xframe.app;
 
 import android.text.TextUtils;
 
+import com.xbc.lib.common.util.AppUtil;
+import com.xbc.lib.common.util.ToastUtil;
 import com.xbc.xframe.app.base.BaseApplication;
 import com.xbc.xframe.db.DBManager;
 
@@ -14,7 +16,7 @@ public class XApplication extends BaseApplication {
     public void onCreate() {
         super.onCreate();
         //当前进程名与包名相同才认为是app启动；
-        if (TextUtils.equals(getPackageName(), AppUtil.getCurProcessName())) {
+        if (TextUtils.equals(getPackageName(), AppUtil.getCurProcessName(instance))) {
             onAppStart();
         }
     }
@@ -38,6 +40,7 @@ public class XApplication extends BaseApplication {
      * 用户启动APP后的行为
      */
     public void onAppStart() {
+        ToastUtil.setApplication(instance);
         CrashHandler.getInstance().init(getInstance());
         DBManager.getInstance().init(getInstance(), "1");
     }

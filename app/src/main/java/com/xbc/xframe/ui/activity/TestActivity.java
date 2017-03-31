@@ -26,6 +26,8 @@ public class TestActivity extends BaseActivity {
     Button mBtnTestPhotoPreview;
     @BindView(R.id.btn_test_date_picker)
     Button mBtnTestDatePicker;
+    @BindView(R.id.btn_test_listview)
+    Button mBtnTestListView;
 
 
     @Override
@@ -79,6 +81,13 @@ public class TestActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 doDatePickerTest();
+            }
+        });
+
+        mBtnTestListView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                doDateListView();
             }
         });
     }
@@ -137,6 +146,12 @@ public class TestActivity extends BaseActivity {
     public void doDatePickerTest() {
         Intent intent = new Intent(mContext, TestFragmentActivity.class);
         intent.putExtra("testId", 3);
+        startActivity(intent);
+    }
+
+    public void doDateListView() {
+        Intent intent = new Intent(mContext, TestFragmentActivity.class);
+        intent.putExtra("testId", 4);
         startActivity(intent);
     }
 

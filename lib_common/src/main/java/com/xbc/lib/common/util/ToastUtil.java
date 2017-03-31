@@ -2,14 +2,15 @@ package com.xbc.lib.common.util;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.xbc.xframe.R;
-import com.xbc.xframe.app.XApplication;
+import com.xbc.lib.common.R;
+
 
 /**
  * Created by xiaobo.cui on 2016/9/22.
@@ -17,18 +18,26 @@ import com.xbc.xframe.app.XApplication;
 public class ToastUtil {
 
     private static Toast CUSTOM_TOAST;
+    private static Context APPLICATION;
+    private static Handler HANDLER = new Handler();
+
+    public static void setApplication(Context application) {
+        APPLICATION = application;
+    }
+
 
     public static void showToast(final String content) {
-        XApplication.getHandler().post(new Runnable() {
+        HANDLER.post(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(XApplication.getInstance(), content, Toast.LENGTH_SHORT).show();
+                Toast.makeText(APPLICATION, content, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     public static void showToast(int resId) {
-        String content = XApplication.getInstance().getString(resId);
+
+        String content = APPLICATION.getString(resId);
         showToast(content);
     }
 
