@@ -94,12 +94,12 @@ public class TestListViewFragment extends BaseFragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             convertView = LayoutInflater.from(mContext).inflate(R.layout.item_myadapter, parent, false);
 
-            TextView tvItem= (TextView) convertView.findViewById(R.id.tv_item);
-            Button btnItem= (Button) convertView.findViewById(R.id.btn_item);
-            String text=mData.get(position);
+            TextView tvItem = (TextView) convertView.findViewById(R.id.tv_item);
+            Button btnItem = (Button) convertView.findViewById(R.id.btn_item);
+            String text = mData.get(position);
             tvItem.setText(text);
-            btnItem.setText((position+1)+"");
-            final String btnString=(position+1)+"";
+            btnItem.setText((position + 1) + "");
+            final String btnString = (position + 1) + "";
             btnItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

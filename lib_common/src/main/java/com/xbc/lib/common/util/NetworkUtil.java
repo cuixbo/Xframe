@@ -2,7 +2,6 @@ package com.xbc.lib.common.util;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
-import android.net.Network;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -14,7 +13,7 @@ import java.lang.reflect.Method;
  */
 public class NetworkUtil {
 
-    private static final String TAG = Network.class.getSimpleName();
+    private static final String TAG = "Network";
 
     public enum NetType {
         None(1),
